@@ -1,0 +1,44 @@
+# ---- 嵌套仓库边界 ----
+# projects/ 下每个项目是【独立的 git 仓库】，外层工作区仓库不跟踪其内容。
+# 例外：本说明文件由外层仓库管理。
+projects/*
+!projects/README.md
+
+# ---- Godot 4 ----
+# 导入缓存（由 .import 元数据重建，不入库）
+.godot/
+# 导出构建产物
+/builds/
+/export/
+*.apk
+*.aab
+*.pck
+*.zip
+# 导出预设可能含 keystore 路径/密码引用——默认忽略，确需共享时单独评估
+export_presets.cfg
+
+# 注意：以下文件【必须入库】，勿加入忽略：
+#   *.import        Godot 4 导入元数据（与资产同目录）
+#   *.uid           Godot 4.4+ 资源 UID，缺失会导致引用断裂
+#   project.godot   工程配置
+
+# ---- Godot Mono/C# ----
+.mono/
+data_*/
+*.sln.dotsettings.user
+
+# ---- 凭证与本地环境 ----
+.env
+*.keystore
+*.p12
+
+# ---- 工具与系统 ----
+.tools-cache/
+Thumbs.db
+.DS_Store
+desktop.ini
+*~
+
+# ---- 大文件策略 ----
+# 大二进制（高分辨率纹理、音频、视频、.blend）建议走 Git LFS 或外置资产库，
+# 并用 tools/asset-manifest.mjs 生成哈希清单登记，而不是直接提交进 Git。

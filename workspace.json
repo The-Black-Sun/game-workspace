@@ -1,0 +1,5 @@
+{
+  "$schema": "./docs/registry.schema.json",
+  "version": 1,
+  "entities": []
+}

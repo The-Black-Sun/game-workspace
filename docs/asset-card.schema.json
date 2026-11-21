@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "asset card",
+  "description": "资产卡：概念图/参考图 + 生成提示词 + 来源 + 评审状态。人机共编同一份文件。",
+  "type": "object",
+  "required": ["format", "version", "template", "title", "items"],
+  "additionalProperties": false,
+  "properties": {
+    "format": { "const": "gws-asset-card" },
+    "version": { "type": "integer", "const": 1 },
+    "template": { "enum": ["gallery", "research"] },
+    "title": { "type": "string", "maxLength": 200 },
+    "summary": { "type": "string", "maxLength": 20000, "description": "Markdown" },
+    "assetType": {
+      "type": "string",
+      "description": "如 concept-art / texture / model / audio / vfx / ui"
+    },
+    "items": {
+      "type": "array",
+      "maxItems": 200,
+      "items": {
+        "type": "object",
+        "required": ["id", "title"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,79}$",
+            "description": "页内唯一；编辑与排序时保持稳定"
+          },
+          "title": { "type": "string", "maxLength": 200 },
+          "body": { "type": "string", "maxLength": 40000, "description": "Markdown 笔记" },
+          "image": {
+            "type": "string",
+            "description": "相对卡片文件的路径，必须位于卡片文件夹内（如 media/xxx.webp）；禁止绝对路径与 .."
+          },
+          "alt": { "type": "string", "maxLength": 500 },
+          "prompt": { "type": "string", "maxLength": 40000, "description": "生成提示词或迭代备注" },
+          "url": { "type": "string", "format": "uri", "description": "来源链接，禁止内嵌凭证" },
+          "linkLabel": { "type": "string", "maxLength": 200 },
+          "license": { "type": "string", "description": "素材许可，如 CC0 / 自绘 / 商用授权编号" },
+          "status": { "enum": ["idea", "in-progress", "review", "done", "archived"] },
+          "tags": { "type": "array", "items": { "type": "string" }, "maxItems": 20 }
+        }
+      }
+    }
+  }
+}

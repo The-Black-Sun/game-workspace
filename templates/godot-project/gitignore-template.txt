@@ -1,0 +1,33 @@
+# ---- Godot 4 项目级忽略（模板）----
+# 导入缓存（由入库的 .import 元数据重建）
+.godot/
+# 构建产物
+/builds/
+/export/
+*.apk
+*.aab
+*.pck
+# 导出预设可能引用 keystore 路径/密码——默认忽略，确需入库时单独评估
+export_presets.cfg
+
+# 【必须入库，勿忽略】：*.import、*.uid、project.godot
+
+# ---- Mono/C# ----
+.mono/
+data_*/
+
+# ---- 凭证与本地环境 ----
+.env
+*.keystore
+*.p12
+
+# ---- 系统 ----
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# ---- 大文件 ----
+# 大二进制（高清纹理、音频、视频、.blend）用 Git LFS：
+#   git lfs install
+#   git lfs track "*.psd" "*.blend" "*.wav"   # 按项目实际需要
+# 或外置资产库 + 工作区 tools/asset-manifest.mjs 哈希清单登记。

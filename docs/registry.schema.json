@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "game-workspace registry",
+  "type": "object",
+  "required": ["version", "entities"],
+  "properties": {
+    "version": { "type": "integer", "const": 1 },
+    "entities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "type", "created", "updated", "folder", "status"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9_-]{0,79}$",
+            "description": "全局唯一，小写字母/数字/连字符/下划线"
+          },
+          "title": { "type": "string", "maxLength": 200 },
+          "description": { "type": "string", "maxLength": 2000 },
+          "type": {
+            "enum": ["project", "asset-card", "research", "note"],
+            "description": "project=游戏项目；asset-card=资产卡；research=调研；note=笔记"
+          },
+          "category": {
+            "type": "string",
+            "description": "自由分类标签，如 godot-2d / concept-art / audio"
+          },
+          "created": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+          "updated": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+          "folder": {
+            "type": "string",
+            "description": "实体内容文件夹，相对其所属根目录；命名约定 YYYY-MM-DD_名称"
+          },
+          "status": { "enum": ["active", "archived"] },
+          "pinned": { "type": "boolean", "default": false },
+          "engine": {
+            "type": "string",
+            "description": "project 类型必填，如 godot-4.3；跨引擎资产卡可省略"
+          },
+          "steps": {
+            "type": "array",
+            "description": "同一实体下的交付物标签页，相关迭代放同一实体",
+            "items": {
+              "type": "object",
+              "required": ["name", "path"],
+              "properties": {
+                "name": { "type": "string" },
+                "path": { "type": "string", "description": "相对实体文件夹" },
+                "viewer": { "enum": ["card", "html", "md"], "default": "md" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

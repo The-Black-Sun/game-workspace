@@ -1,0 +1,8 @@
+{
+  "entity_id": "example",
+  "step": "self-test",
+  "files": [
+    { "path": "README.md", "role": "工作区说明", "kind": "output" },
+    { "path": "workspace.json", "role": "注册表", "kind": "input" }
+  ]
+}

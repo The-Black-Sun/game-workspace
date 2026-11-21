@@ -1,0 +1,24 @@
+{
+  "format": "gws-asset-manifest",
+  "version": 1,
+  "entity_id": "example",
+  "step": "self-test",
+  "created": "2026-11-21T09:57:51.775Z",
+  "root_hint": "game-workspace",
+  "files": [
+    {
+      "path": "README.md",
+      "role": "工作区说明",
+      "kind": "output",
+      "size": 2820,
+      "sha256": "2439f92a6b3f920890e5c42e51d264622c1453fc3bf96df0d6ae69a0ccd03fb6"
+    },
+    {
+      "path": "workspace.json",
+      "role": "注册表",
+      "kind": "input",
+      "size": 81,
+      "sha256": "fd0951d540954cbc6c8512b7c311b38c250cebc199b7b0d42f6e17a798d65fa0"
+    }
+  ]
+}
