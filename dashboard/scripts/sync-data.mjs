@@ -16,7 +16,7 @@ import { fileURLToPath } from 'node:url';
 const dashboardDir = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const root = path.dirname(dashboardDir);
 const outDir = path.join(dashboardDir, 'public', 'data');
-const SKIP_DIRS = new Set(['.git', '.godot', 'node_modules', 'builds', 'export', '.mrmak']);
+const SKIP_DIRS = new Set(['.git', '.godot', '.mono', 'node_modules', 'builds', 'export', '.mrmak']);
 const MAX_FILE = 8 * 1024 * 1024;
 
 async function copyEntityFolder(src, dest) {
@@ -26,7 +26,7 @@ async function copyEntityFolder(src, dest) {
     const entries = await readdir(s, { withFileTypes: true });
     for (const e of entries) {
       if (e.isDirectory()) {
-        if (SKIP_DIRS.has(e.name)) continue;
+        if (SKIP_DIRS.has(e.name) || e.name.startsWith('data_')) continue;
         await mkdir(path.join(d, e.name), { recursive: true });
         await walk(path.join(s, e.name), path.join(d, e.name));
       } else if (e.isFile()) {
