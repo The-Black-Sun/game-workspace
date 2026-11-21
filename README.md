@@ -39,13 +39,17 @@ game-workspace/
   tools/               # 脚本工具（资产哈希清单等）
   templates/           # 新项目模板（Godot 工程 .gitignore、project.md）
   docs/                # 工作区自身的规范（schema 等）
+  dashboard/           # 网页看板（React+Vite 只读视图，渲染注册表与资产卡）
+  guide/               # 指南示例实体（看板示例数据，可替换）
 ```
 
 ## 快速上手
 
-1. 新资产进入工作区 → 按 `processes/asset-intake.md` 入库登记。
-2. 新建游戏项目 → 按 `processes/godot-project-setup.md` 创建
+1. 浏览工作区：进入 `dashboard/` 执行 `npm install && npm run dev`，
+   打开网页看板（只读视图，自动同步注册表与卡片数据）。
+2. 新资产进入工作区 → 按 `processes/asset-intake.md` 入库登记。
+3. 新建游戏项目 → 按 `processes/godot-project-setup.md` 创建
    （含项目独立 git 仓库初始化）并在 `workspace.json` 注册。
-3. 每次实质性变更后更新注册表中对应条目的 `updated` 日期。
-4. 提交前先想清楚改动属于哪一层：工作区功能/内容 → 外层仓库；
+4. 每次实质性变更后更新注册表中对应条目的 `updated` 日期。
+5. 提交前先想清楚改动属于哪一层：工作区功能/内容 → 外层仓库；
    某游戏的代码与资产 → 该项目的仓库。

@@ -1,0 +1,28 @@
+{
+  "format": "gws-asset-card",
+  "version": 1,
+  "template": "gallery",
+  "title": "示例资产卡 · 概念图占位",
+  "summary": "演示资产卡的渲染效果：**图片 + 状态 + 提示词 + 来源**。这是一张示例卡，熟悉后可删除。",
+  "assetType": "concept-art",
+  "items": [
+    {
+      "id": "placeholder-hero",
+      "title": "占位概念图 · 山与塔",
+      "body": "程序生成的占位图，用于验证图库视图、灯箱与状态标签。真实资产入库时替换为实际条目。",
+      "image": "media/placeholder-concept.png",
+      "alt": "占位概念图：暮色中的山峦与孤塔",
+      "prompt": "示例提示词位：这里记录生成提示词或迭代备注，便于复现与继续迭代。",
+      "license": "自制占位图（程序生成）",
+      "status": "idea",
+      "tags": ["示例", "concept"]
+    },
+    {
+      "id": "placeholder-note",
+      "title": "无图条目 · 纯笔记",
+      "body": "条目不一定有图。调研结论、文字设定、待办想法都可以先记下来，再逐步补充素材。",
+      "status": "in-progress",
+      "tags": ["示例"]
+    }
+  ]
+}

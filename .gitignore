@@ -39,6 +39,11 @@ Thumbs.db
 desktop.ini
 *~
 
+# ---- 看板应用 ----
+dashboard/node_modules/
+dashboard/dist/
+dashboard/public/data/
+
 # ---- 大文件策略 ----
 # 大二进制（高分辨率纹理、音频、视频、.blend）建议走 Git LFS 或外置资产库，
 # 并用 tools/asset-manifest.mjs 生成哈希清单登记，而不是直接提交进 Git。

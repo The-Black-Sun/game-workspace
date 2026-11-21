@@ -1,5 +1,36 @@
 {
   "$schema": "./docs/registry.schema.json",
   "version": 1,
-  "entities": []
+  "entities": [
+    {
+      "id": "guide",
+      "title": "工作区指南",
+      "description": "看板与工作区的使用说明（示例实体，可替换）。",
+      "type": "note",
+      "category": "guide",
+      "created": "2026-11-21",
+      "updated": "2026-11-21",
+      "folder": "guide",
+      "status": "active",
+      "pinned": true,
+      "steps": [
+        { "name": "欢迎", "path": "welcome.md", "viewer": "md" }
+      ]
+    },
+    {
+      "id": "example-asset-card",
+      "title": "示例资产卡",
+      "description": "演示 gallery 资产卡渲染效果的占位卡片，熟悉后可删除。",
+      "type": "asset-card",
+      "category": "concept-art",
+      "created": "2026-11-21",
+      "updated": "2026-11-21",
+      "folder": "library/cards/2026-11-21_example-asset-card",
+      "status": "active",
+      "pinned": false,
+      "steps": [
+        { "name": "概念图", "path": "content.card.json", "viewer": "card" }
+      ]
+    }
+  ]
 }
