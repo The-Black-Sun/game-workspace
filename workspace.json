@@ -18,6 +18,22 @@
       ]
     },
     {
+      "id": "extra-30-days",
+      "title": "extra-30-days",
+      "description": "桌面卡牌叙事生存游戏：30 天倒计时中拖拽组合卡牌、管理资源、应对事件并达成结局。参考《密教模拟器》《苏丹的游戏》《Stacklands》。",
+      "type": "project",
+      "category": "godot",
+      "engine": "godot-4.7",
+      "created": "2026-11-21",
+      "updated": "2026-11-21",
+      "folder": "projects/extra-30-days",
+      "status": "active",
+      "pinned": false,
+      "steps": [
+        { "name": "项目说明", "path": "project.md", "viewer": "md" }
+      ]
+    },
+    {
       "id": "example-asset-card",
       "title": "示例资产卡",
       "description": "演示 gallery 资产卡渲染效果的占位卡片，熟悉后可删除。",
